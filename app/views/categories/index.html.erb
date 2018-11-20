@@ -1,1 +1,7 @@
-<%= @message %>
+<h2>Categories (<%= @categories.length %>)</h2>
+
+<ol>
+  <% @categories.each do |category|%>
+    <li><%= category.title %></li> (<%= category.products_count %> products)
+  <% end %>
+</ol>
