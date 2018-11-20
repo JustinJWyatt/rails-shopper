@@ -8,7 +8,16 @@
   <% @products.each do |product| %>
 
     <li>
-      <%= product.title %> (<%= product.price %>)
+      <%= product.title %> (<%= number_to_currency product.price %>)
+
+      <%= form_tag order_items_path  do %>
+
+        <%= hidden_field_tag :product_id, product.id %>
+        <%= number_field_tag :quantity, 1 %>
+        <%= submit_tag "Add to cart" %>
+
+      <% end %>
+
     </li>
 
   <% end %>
